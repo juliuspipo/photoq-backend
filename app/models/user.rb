@@ -13,7 +13,7 @@ class User
 
   #Validators
   validates :username, presence: true, uniqueness: true
-  validates :password, presenece: true, confirmation: true, minimum: 8, maximum: 16
+  validates :password, presence: true, confirmation: true, length: { minimum: 8, maximum: 16 }
   validates_presence_of :name
   validates :email, presence: true, uniqueness: true
   validates :age, presence: true, numericality: { only_integer: true }
