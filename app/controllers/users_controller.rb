@@ -9,12 +9,18 @@ class UsersController < ApplicationController
 
 	#/users/create
 	def create
-		user = User.create("name" => params[:name], "username" => params[:username], "age"=> params[:age])
+		user = User.create(
+						   "name" => params[:name], 
+						   "username" => params[:username], 
+						   "age" => params[:age],
+						   "email" => params[:email],
+						   "active" => false
+						  )
 
-		if user.valid? 
+		if user.valid?
 			response = { status: "created", data: user }
 		else
-			response = { status: "failed",  data: user.errors.messages } 
+			response = { status: "failed",  data: user.errors.messages }		
 		end 
 		
 		render json: response 

@@ -13,16 +13,12 @@ class User
 
   #Validators
   validates :username, presence: true, uniqueness: true
-  # validates :password, presence: true, confirmation: true, length: { minimum: 8, maximum: 16 }
+  validates :password, presence: true, confirmation: true, length: { minimum: 8, maximum: 16 }
   validates_presence_of :name
-  # validates :email, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
   validates :age, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 18 }
-  # validates_presence_of :active
+  validates_presence_of :active
 
   #Indexes [TBD]
-
-  def password_error
-    puts password
-  end
 
 end
